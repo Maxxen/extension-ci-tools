@@ -14,11 +14,11 @@ RUN apt-get install -y -qq gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
 # so we revert to using 3.21 for now. We should investigate this further.
 # I've done some initial bisecting, and it seems like 3.25 also fails.
 # So somewhere between 3.21 and 3.25, something changed in cmake that breaks recursive-cmake CC-builds.
-RUN mkdir /cmake_3_23 && \
-    cd /cmake_3_23 && \
-    wget https://github.com/Kitware/CMake/releases/download/v3.23.3/cmake-3.23.3-linux-x86_64.sh && \
-    chmod +x cmake-3.23.3-linux-x86_64.sh && \
-    ./cmake-3.23.3-linux-x86_64.sh --skip-license --prefix=/usr/local && \
+RUN mkdir /cmake_3_24 && \
+    cd /cmake_3_24 && \
+    wget https://github.com/Kitware/CMake/releases/download/v3.24.3/cmake-3.24.3-linux-x86_64.sh && \
+    chmod +x cmake-3.24.3-linux-x86_64.sh && \
+    ./cmake-3.24.3-linux-x86_64.sh --skip-license --prefix=/usr/local && \
     cmake --version
 
 # Install GIT
